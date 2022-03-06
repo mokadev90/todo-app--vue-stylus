@@ -92,6 +92,7 @@ export default {
       <button class="box-btn-foot" @click="filter = 'Checked'">Done</button>
     </div>
   </div>
+  <span class="author">by Moka</span>
 </template>
 
 <style lang="stylus" scoped>
@@ -183,4 +184,11 @@ label
     button
         border none
         padding 1
+
+.author
+    font-size 24px
+    text-align right
+    width 100%
+    font-weight bold
+    color #1592ab
 </style>
