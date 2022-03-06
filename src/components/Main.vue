@@ -12,7 +12,9 @@ export default {
   },
   computed: {
     tasksLeft() {
-      const left = this.tasks.filter((t) => t.checked === false).length || 0;
+      const left = this.tasks.length
+        ? this.tasks.filter((t) => t.checked === false).length || 0
+        : 0;
       return left;
     },
   },

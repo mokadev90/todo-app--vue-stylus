@@ -9,11 +9,16 @@ export default {
   },
   data() {
     return {
-      tasks: [
-        { id: 1, checked: false, title: 'TASK 1' },
-        { id: 2, checked: false, title: 'TASK 2' },
-      ],
+      tasks: JSON.parse(localStorage.getItem('tasks') || '[]'),
     };
+  },
+  watch: {
+    tasks: {
+      handler(tasks) {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      },
+      deep: true,
+    },
   },
   methods: {
     addTask(newTask, reset) {
@@ -21,17 +26,22 @@ export default {
       if (!value) {
         return;
       }
-      this.tasks.push({
+      const task = {
         id: +new Date(),
         checked: false,
         title: value,
-      });
+      };
+      //localStorage.setItem('tasks', JSON.stringify(task));
+      this.tasks.push(task);
       reset();
     },
     deleteTask(task) {
+      //const tasks = JSON.parse(localStorage.getItem('tasks'));
+      //tasks.splice(this.tasks.indexOf(task), 1);
       this.tasks.splice(this.tasks.indexOf(task), 1);
     },
     clearTasks() {
+      if (this.tasks.length === 0) return;
       this.tasks = this.tasks.filter((t) => t.checked === false);
     },
   },
