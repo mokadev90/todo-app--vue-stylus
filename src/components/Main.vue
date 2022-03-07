@@ -111,7 +111,7 @@ export default {
     margin-bottom 1rem
 
 .box
-    width 18rem
+    width 15rem
     height 2rem
     background-color #c5c5c5
     padding 1rem

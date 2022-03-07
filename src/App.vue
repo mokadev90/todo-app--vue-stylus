@@ -57,13 +57,14 @@ export default {
 <style lang="stylus">
 html
     font-family Ubuntu
-    width 100%
-    height 100vh
     display flex
     justify-content center
 
 body
     background-color #f2f2f2
+    width 100%
+    height 100vh
+    padding 3rem
 
 .container
     display flex
